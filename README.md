@@ -32,6 +32,7 @@ POST `veo=/bin/touch /tmp/pwn`
 
 - ### 四、研究中遇到的问题
 1. 为什么不通过ebpf直接执行命令
+
 根据ebpf的编写规则，ebpf自己是不能执行命令的，它只能hook各种函数。所以有两种方法可以间接达到执行命令的效果
 
 - （1）自己开一个进程，ebpf通过ebpf map传输命令参数到这个进程，通过这个进程执行命令
@@ -39,6 +40,7 @@ POST `veo=/bin/touch /tmp/pwn`
 
 
 2. 怎么通过ebpf识别HTTP报文
+
 XDP是读不到报文内容的，所以最底层用TC格式化HTTP报文就可以，你需要算IP header、TCP header的长度等定位包体内容。另外ebpf有循环次数限制，所以最好payload是放在包体的开头或结尾
 
 - ### 五、防御加固方案
