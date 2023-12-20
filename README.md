@@ -1,4 +1,4 @@
-# <center>全链路内存马系列之 ebpf 内核马</center>
+# 全链路内存马系列之 ebpf 内核马
 
 ![](img/webshellattckchain.jpg)
 其他内存马
