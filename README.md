@@ -7,6 +7,8 @@
 - ### 注意
 本项目不含有完整的利用工具，仅提供无害化测试程序、防御加固方案，以及研究思路讨论
 - ### 测试程序使用方式
+测试环境：Ubuntu 20.04.6 LTS + Nginx 1.18.0
+
 下载测试程序 [releases](https://github.com/veo/ebpf_shell/releases) 并运行
 
 POST `veo=/bin/touch /tmp/pwn`
