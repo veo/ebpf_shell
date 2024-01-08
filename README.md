@@ -52,6 +52,19 @@ POST `veo=/bin/touch /tmp/pwn`
 
 
 - ### 五、防御加固方案
-1. 通过bpftool可以检测出是否有ebpf恶意程序
-2. 权限收敛，收敛SYS_ADMIN、CAP_BPF等权限
+环境限制:
+1. 不管是宿主机还是容器，都进行权限收敛，尽量不赋予SYS_ADMIN、CAP_BPF等权限
+2. 大部分eBPF程序类型都需要root权限的用户才能调用执行，尽量控制应用为普通用户权限
 3. 确认 /proc/sys/kernel/unprivileged_bpf_disabled 为 1
+
+特征检查:
+1. 落地elf文件查杀
+
+运行检查/监控：
+1. 通过bpftool可以检测出是否有新增加的ebpf程序
+2. 检查ebpf文件描述符与引用计数器是否有增加
+3. ebpf程序字节码分析
+
+防御：
+使用ebpf技术防御ebpf后门
+
