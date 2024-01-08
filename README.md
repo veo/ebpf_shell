@@ -44,7 +44,7 @@ POST `veo=/bin/touch /tmp/pwn`
 
 #### 2. 怎么通过ebpf识别HTTP报文
 
-XDP是读不到报文内容的，所以最底层用TC格式化HTTP报文就可以，你需要算IP header、TCP header的长度等定位包体内容。另外ebpf有循环次数限制，所以最好payload是放在包体的开头或结尾
+用的TC格式化HTTP报文，你需要算IP header、TCP header的长度等定位包体内容。另外ebpf有循环次数限制，所以最好payload是放在包体的开头或结尾
 
 #### 3. 怎么让ebpf脱离加载器在内核中持续运行，即使加载器程序退出
 
