@@ -59,11 +59,12 @@ POST `veo=/bin/touch /tmp/pwn`
 
 特征检查:
 1. 落地elf文件查杀
+2. 新增的ebpf程序字节码分析
 
 运行检查/监控：
 1. 通过bpftool可以检测出是否有新增加的ebpf程序
 2. 检查ebpf文件描述符与引用计数器是否有增加
-3. ebpf程序字节码分析
+3. 运行的ebpf程序字节码分析
 
 防御：
 使用ebpf技术防御ebpf后门
